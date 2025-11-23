@@ -3,10 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\isAdminMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('is_admin:admin,superadmin');
+
+
 //Route::view('/home', 'home');
 // Route::view('/home', 'home', ['name' => 'Anand Phadnis']);
 
@@ -52,7 +55,7 @@ Route::get(
 //$url = route('home'); // Generates /home
 
 // // With parameters
-// echo route('home'); 
+// echo route('home');
 
 // For a route without parameters
 
@@ -79,3 +82,11 @@ Route::get(
 
 Route::get('/homedata', [App\Http\Controllers\ExampleController::class, 'index']);
 Route::get('/homedata/contact', [App\Http\Controllers\ExampleController::class, 'contact']);
+
+
+Route::get('email-test', function(){
+    $details['email'] = 'phadnisanandhyd@gmail.com';
+    dispatch(new App\Jobs\SendEmailJob($details));
+    dd('done');
+
+});

@@ -2,6 +2,7 @@
 <html>
 <head>
     @include('layouts.header')
+    
 </head>
 <body>
     <header>

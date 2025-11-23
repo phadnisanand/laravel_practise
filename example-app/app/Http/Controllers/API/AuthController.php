@@ -40,7 +40,7 @@ class AuthController extends Controller
         return response()->json([
                 "status" => 1,
                 "message" => "user registered",
-                "data" =>  $response
+                "data" =>  $response 
         ]);
     }
 
@@ -60,7 +60,7 @@ class AuthController extends Controller
         return response()->json([
                 "status" => 0,
                 "message" => "Authentication error",
-                "data" =>  null
+                "data" =>  null 
         ]);
     }
 }
